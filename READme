@@ -1,0 +1,11 @@
+This subdirectory contains
+
+1. dataset of vertex feature vectors
+     pbc8k_v2.1.0_knn.mat 
+
+2. demo script
+     script_build_knn_adjacency.m 
+
+3. function
+     knnsearch2sparse.m
+
