@@ -43,36 +43,36 @@ ylabel("Count");
 fprintf("Katz centrality completed. Press any key to continue\n");
 pause();
 % 
-% %% Page Rank centrality
-% % Plot the pagerank distribution
-% % Embed the PageRank centrality with alpha=0.85
-% % Generate the personalized vector
-% alphas = linspace(0.5, 0.9, 5);
-% 
-% figure();
-% for alpha=alphas
-%     p_vector = rand(n, 1);
-%     % Normalize p vector
-%     p_vector = p_vector / sum(abs(p_vector));
-% 
-%     fprintf("Evaluating Pagerank...\n");
-%     Pk0 = speye(n) - speye(n);
-%     Pk = speye(n);
-%     for i=1:iters
-%             Pk = alpha * Pk * Ak_norm;
-%             Pk0 = Pk0 + Pk; 
-%     end
-%     vector_soln = Pk0 * (1-alpha) * p_vector * n;
-%     pagerank_dist = vector_soln;
-% 
-%     % Plot the Pagerank distribution
-%     histogram(log10(vector_soln*n), 100);
-%     title_str = 'Pagerank on 500k-node graph';
-%     hold on;
-%     title(title_str);
-%     xlabel("value");
-%     ylabel("Count");
-% end
+%% Page Rank centrality
+% Plot the pagerank distribution
+% Embed the PageRank centrality with alpha=0.85
+% Generate the personalized vector
+alphas = linspace(0.5, 0.9, 5);
+
+figure();
+for alpha=alphas
+    p_vector = rand(n, 1);
+    % Normalize p vector
+    p_vector = p_vector / sum(abs(p_vector));
+
+    fprintf("Evaluating Pagerank...\n");
+    Pk0 = speye(n) - speye(n);
+    Pk = speye(n);
+    for i=1:iters
+            Pk = alpha * Pk * Ak_norm;
+            Pk0 = Pk0 + Pk; 
+    end
+    vector_soln = Pk0 * (1-alpha) * p_vector * n;
+    pagerank_dist = vector_soln;
+
+    % Plot the Pagerank distribution
+    histogram(log10(vector_soln*n), 100);
+    title_str = 'Pagerank on 500k-node graph';
+    hold on;
+    title(title_str);
+    xlabel("value");
+    ylabel("Count");
+end
 
 figure();
 stddevs = linspace(0.1, 0.5, 5);
