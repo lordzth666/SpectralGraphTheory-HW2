@@ -70,7 +70,7 @@ p_vector = rand(n, 1);
 p_vector = p_vector / sum(abs(p_vector));
 
 fprintf("Evaluating Pagerank...\n");
-Pk0 = sparse(zeros(n, n));
+Pk0 = speye(n)-speye(n);
 Pk = sparse(eye(n));
 for i=1:iters
         Pk = alpha * Pk * Ak_norm;
@@ -86,6 +86,6 @@ eccentrity = transpose(max(Geod));
 
 figure();
 gplot3D(Ak_bin, [eccentrity, katz_c, pagerank_dist]);
-xlabel("in-degree distribution");
+xlabel("Eccentrity distribution");
 ylabel("katz-distribution");
 zlabel("pagerank-distribution");

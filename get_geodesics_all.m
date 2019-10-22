@@ -38,8 +38,6 @@ axis equal tight
 title( 'the geodesic matrix') 
 colormap( pink ) 
 xlabel('\bf any negative value denotes the absence of path')
-
-
 return 
 
 %% Program Log 

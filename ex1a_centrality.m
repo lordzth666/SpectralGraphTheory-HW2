@@ -2,7 +2,7 @@ clear all;
 close all;
 
 % Load graph
-Datafilename = 'pbmc8k_v2.1.0_knn.mat'
+Datafilename = 'pbmc8k_v2.1.0_knn.mat';
 
 fprintf( '\n   loading data from file %s...\n', Datafilename  ); 
 

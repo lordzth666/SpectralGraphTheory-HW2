@@ -17,7 +17,7 @@ function [ Ak_cells] = get_Pk_counts( A )
 
 %% 
 n   = size( A, 1 );
-MA  = zeros(n,n);                  % for accumulated mask  
+MA  = speye(n)-speye(n);                  % for accumulated mask  
 
 k  = 1; 
 Pk = A;
@@ -25,7 +25,6 @@ Pk = A;
 while nnz(Pk) > 0 
     MA = ( MA + Pk ) > 0;          % mask update 
     Ak_cells{k} = Pk; 
-
     k  = k + 1; 
     Qk = A * Pk;                   % one more step walk 
     Pk = Qk - diag( diag(Qk) );    % removal of cycles 
